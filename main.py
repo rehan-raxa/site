@@ -1,22 +1,34 @@
-from fastapi import FastAPI, Request
-from fastapi.responses import HTMLResponse
-from fastapi.templating import Jinja2Templates
-from fastapi.staticfiles import StaticFiles
-import uvicorn
+import os
+from aiohttp import web
+from aiohttp_jinja2 import setup as jinja_setup, template
+import jinja2
 
-app = FastAPI()
+routes = web.RouteTableDef()
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
-templates = Jinja2Templates(directory="templates")
+@routes.get('/')
+@template('index.html')
+async def index(request):
+    return {}
 
-@app.get("/", response_class=HTMLResponse)
-async def home(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+@routes.get('/privacy')
+@template('privacy.html')
+async def privacy(request):
+    return {}
 
-@app.get("/privacy", response_class=HTMLResponse)
-async def privacy(request: Request):
-    return templates.TemplateResponse("privacy.html", {"request": request})
+@routes.get('/terms')
+@template('terms.html')
+async def terms(request):
+    return {}
 
-@app.get("/terms", response_class=HTMLResponse)
-async def terms(request: Request):
-    return templates.TemplateResponse("terms.html", {"request": request})
+@routes.get('/health')
+async def health(request):
+    return web.json_response({'status': 'ok'})
+
+app = web.Application()
+jinja_setup(app, loader=jinja2.FileSystemLoader('templates'))
+app.add_routes(routes)
+app.router.add_static('/static/', path='static', name='static')
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 8000))
+    web.run_app(app, port=port)
