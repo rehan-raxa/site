@@ -2,58 +2,85 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PublicBotsHub – Telegram Bot Developer</title>
-  <link rel="stylesheet" href="/static/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Public Bots Hub | Telegram Bot Services</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Loading Screen -->
+
+  <!-- Loader -->
   <div id="loader">
     <div class="spinner"></div>
   </div>
 
-  <!-- Main Content -->
-  <div class="container">
-    <div class="card fade-in">
-      <h1>🤖 PublicBotsHub</h1>
-      <p class="subtitle">Custom Telegram Bots for Automation, Payments, Support & More</p>
+  <header>
+    <h1>🤖 Public Bots Hub</h1>
+    <p>Your one-stop solution for powerful Telegram Bots.</p>
+  </header>
 
-      <section>
-        <h2>💼 What I Do</h2>
+  <section>
+    <h2>🚀 What We Offer</h2>
+    <p>We build high-quality Telegram bots tailored to your needs. Whether you're looking for automation, file tools, or personal assistant bots — we’ve got you covered.</p>
+  </section>
+
+  <section>
+    <h2>🧠 Our Special Bots</h2>
+    <ul class="features">
+      <li>🔐 Save Restricted Content Bot</li>
+      <li>📁 Auto Rename & File Rename Bot</li>
+      <li>👤 Personal Use Bots (Private Use)</li>
+      <li>⚙️ Automation Bots</li>
+      <li>💳 Payment & Subscription Bots</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>💰 Pricing Plans</h2>
+    <div class="pricing-container">
+      <div class="pricing-card">
+        <h3>Starter</h3>
+        <p class="price">₹999</p>
         <ul>
-          <li>💳 Payment Bots (Razorpay, PhonePe, Paytm)</li>
-          <li>🧾 Subscription-based Access & Membership</li>
-          <li>📦 Product & File Delivery Automation</li>
-          <li>👨‍💼 Auto Support & Lead Generation</li>
-          <li>📊 Admin Panel & Logs Dashboard</li>
-          <li>🔐 User Limit Control + IP Restriction</li>
+          <li>1 Simple Bot</li>
+          <li>Basic Commands</li>
+          <li>Free Deployment</li>
         </ul>
-      </section>
+        <a href="https://t.me/YourUsername" class="btn">Get Started</a>
+      </div>
 
-      <section>
-        <h2>🎯 Ideal For</h2>
-        <p>Resellers, Freelancers, Agencies, SaaS owners, Course Sellers, and Startups who want to automate on Telegram</p>
-      </section>
+      <div class="pricing-card highlight">
+        <h3>Pro</h3>
+        <p class="price">₹2499</p>
+        <ul>
+          <li>3 Functional Bots</li>
+          <li>Auto Rename, Payments</li>
+          <li>Subscription Integration</li>
+        </ul>
+        <a href="https://t.me/YourUsername" class="btn">Choose Pro</a>
+      </div>
 
-      <section>
-        <h2>📞 Contact Me</h2>
-        <p>Have a custom bot in mind? <br>
-        <a href="https://t.me/YourUsername" target="_blank">Chat on Telegram</a></p>
-      </section>
-
-      <div class="footer-links">
-        <a href="/privacy">Privacy Policy</a> |
-        <a href="/terms">Terms & Conditions</a>
+      <div class="pricing-card">
+        <h3>Business</h3>
+        <p class="price">₹4999+</p>
+        <ul>
+          <li>Custom Solution</li>
+          <li>Dashboard + Hosting</li>
+          <li>Support & Updates</li>
+        </ul>
+        <a href="https://t.me/YourUsername" class="btn">Request Quote</a>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Floating Telegram Button -->
-  <a href="https://t.me/YourUsername" class="telegram-button" target="_blank" title="Chat on Telegram">
+  <footer>
+    <p>&copy; 2025 Public Bots Hub | All Rights Reserved</p>
+  </footer>
+
+  <!-- Floating Telegram Contact -->
+  <a href="https://t.me/YourUsername" class="telegram-button" target="_blank">
     <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" />
   </a>
 
-  <!-- Loader hide script -->
   <script>
     window.addEventListener("load", () => {
       document.getElementById("loader").style.display = "none";
