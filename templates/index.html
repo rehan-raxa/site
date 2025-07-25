@@ -4,18 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PublicBotsHub</title>
-  <link rel="stylesheet" href="/static/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
   <div class="loader"></div>
 
+  <!-- Navigation Menu -->
   <nav class="navbar">
     <div class="nav-left">
       <img src="/static/logo.png" alt="Logo" class="logo-img" />
       <span class="logo-text">PublicBotsHub</span>
     </div>
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="hamburger">&#9776;</label>
     <ul class="nav-links">
       <li><a href="/">Home</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -24,36 +26,41 @@
     </ul>
   </nav>
 
-  <header>
-    <h1>PublicBotsHub</h1>
-    <p class="tagline">Telegram Bot Services — Rename, Save Restricted, Subscriptions & More</p>
+  <!-- Hero Section -->
+  <header class="hero">
+    <h1>Welcome to <span class="highlight">PublicBotsHub</span></h1>
+    <p>Your one-stop hub for premium Telegram Bots with automation, payments, and custom solutions.</p>
   </header>
 
+  <!-- Pricing Cards -->
   <section class="cards">
     <div class="card">
       <h2>Save Restricted Content Bot</h2>
-      <p>Save protected Telegram content easily.</p>
+      <p>Download protected Telegram content easily.</p>
       <span class="price">₹199/month</span>
     </div>
     <div class="card">
       <h2>Auto Rename Bot</h2>
-      <p>Auto rename incoming files in Telegram with logic.</p>
+      <p>Automatically rename incoming Telegram files.</p>
       <span class="price">₹149/month</span>
     </div>
     <div class="card">
       <h2>File Rename Bot</h2>
-      <p>Rename videos, docs & more in your chat instantly.</p>
+      <p>Manual file renaming bot with custom logic.</p>
       <span class="price">₹99/month</span>
     </div>
     <div class="card">
-      <h2>Personal Bots</h2>
-      <p>Get your own custom Telegram bot with payment & hosting.</p>
+      <h2>Personal Telegram Bots</h2>
+      <p>Get your own custom hosted Telegram bots.</p>
       <span class="price">Starts ₹249</span>
     </div>
   </section>
 
+  <!-- Contact & Footer -->
   <footer id="contact">
-    © 2025 PublicBotsHub • <a href="https://t.me/YourSupportBot" class="tg-icon">Contact on Telegram</a>
+    <p>Contact us on Telegram: <a href="https://t.me/YourSupportBot" class="tg-icon">📩 @YourSupportBot</a></p>
+    <p>© 2025 PublicBotsHub. All rights reserved.</p>
   </footer>
+
 </body>
 </html>
