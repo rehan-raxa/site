@@ -3,87 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Public Bots Hub | Telegram Bot Services</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>PublicBotsHub</title>
+  <link rel="stylesheet" href="/static/style.css" />
 </head>
 <body>
-
   <!-- Loader -->
   <div id="loader">
     <div class="spinner"></div>
+    <h2>Loading PublicBotsHub...</h2>
   </div>
 
-  <header>
-    <h1>🤖 Public Bots Hub</h1>
-    <p>Your one-stop solution for powerful Telegram Bots.</p>
-  </header>
+  <!-- Main Content -->
+  <div id="content" class="fade-in">
+    <header>
+      <h1>🤖 PublicBotsHub</h1>
+      <p>Your One-Stop Solution for Powerful Telegram Bots</p>
+    </header>
 
-  <section>
-    <h2>🚀 What We Offer</h2>
-    <p>We build high-quality Telegram bots tailored to your needs. Whether you're looking for automation, file tools, or personal assistant bots — we’ve got you covered.</p>
-  </section>
+    <section class="pricing">
+      {% for bot in bots %}
+        <div class="card">
+          <h3>{{ bot.title }}</h3>
+          <p>{{ bot.desc }}</p>
+          <span>{{ bot.price }}</span>
+        </div>
+      {% endfor %}
+    </section>
 
-  <section>
-    <h2>🧠 Our Special Bots</h2>
-    <ul class="features">
-      <li>🔐 Save Restricted Content Bot</li>
-      <li>📁 Auto Rename & File Rename Bot</li>
-      <li>👤 Personal Use Bots (Private Use)</li>
-      <li>⚙️ Automation Bots</li>
-      <li>💳 Payment & Subscription Bots</li>
-    </ul>
-  </section>
+    <footer>
+      <p>© 2025 PublicBotsHub. Crafted for Telegram automation.</p>
+    </footer>
 
-  <section>
-    <h2>💰 Pricing Plans</h2>
-    <div class="pricing-container">
-      <div class="pricing-card">
-        <h3>Starter</h3>
-        <p class="price">₹999</p>
-        <ul>
-          <li>1 Simple Bot</li>
-          <li>Basic Commands</li>
-          <li>Free Deployment</li>
-        </ul>
-        <a href="https://t.me/YourUsername" class="btn">Get Started</a>
-      </div>
-
-      <div class="pricing-card highlight">
-        <h3>Pro</h3>
-        <p class="price">₹2499</p>
-        <ul>
-          <li>3 Functional Bots</li>
-          <li>Auto Rename, Payments</li>
-          <li>Subscription Integration</li>
-        </ul>
-        <a href="https://t.me/YourUsername" class="btn">Choose Pro</a>
-      </div>
-
-      <div class="pricing-card">
-        <h3>Business</h3>
-        <p class="price">₹4999+</p>
-        <ul>
-          <li>Custom Solution</li>
-          <li>Dashboard + Hosting</li>
-          <li>Support & Updates</li>
-        </ul>
-        <a href="https://t.me/YourUsername" class="btn">Request Quote</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Public Bots Hub | All Rights Reserved</p>
-  </footer>
-
-  <!-- Floating Telegram Contact -->
-  <a href="https://t.me/YourUsername" class="telegram-button" target="_blank">
-    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" />
-  </a>
+    <!-- Telegram Floating Icon -->
+    <a href="https://t.me/YourTelegramUsername" class="tg-float" target="_blank" aria-label="Contact via Telegram">
+      <img src="/static/telegram.svg" alt="Telegram" />
+    </a>
+  </div>
 
   <script>
-    window.addEventListener("load", () => {
-      document.getElementById("loader").style.display = "none";
+    window.addEventListener('load', () => {
+      document.getElementById('loader').style.display = 'none';
+      document.getElementById('content').style.display = 'block';
     });
   </script>
 </body>
