@@ -2,149 +2,122 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-  background: linear-gradient(to right, #2d2f87, #3f6dc4);
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
   color: #fff;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  padding-bottom: 50px;
   overflow-x: hidden;
 }
 
-#loader {
+.loader {
   position: fixed;
-  width: 100%;
-  height: 100%;
-  background: #111;
-  color: #fff;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: #000;
+  z-index: 9999;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  animation: fadeOut 1s ease 1s forwards;
 }
 
-.spinner {
-  width: 60px;
-  height: 60px;
-  border: 6px solid #ddd;
-  border-top-color: #3f6dc4;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin-bottom: 15px;
+.loader::after {
+  content: 'Loading...';
+  color: white;
+  font-size: 1.5rem;
 }
 
-@keyframes spin {
+@keyframes fadeOut {
   to {
-    transform: rotate(360deg);
+    opacity: 0;
+    visibility: hidden;
   }
-}
-
-.fade-in {
-  display: none;
-  animation: fadeIn 0.7s ease-in forwards;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 header {
   text-align: center;
-  padding: 60px 20px 20px;
+  padding: 2rem 1rem 1rem;
 }
 
-header h1 {
-  font-size: 3rem;
-  margin-bottom: 15px;
+.logo {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
 }
 
-header p {
-  font-size: 1.2rem;
-  color: #dcdcdc;
+.tagline {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  color: #f0f0f0;
 }
 
-.pricing {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-  padding: 40px 20px;
-  width: 100%;
-  max-width: 1200px;
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem;
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 15px;
-  padding: 25px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: 280px;
+  backdrop-filter: blur(10px);
   text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
-  backdrop-filter: blur(8px);
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
 }
 
-.card h3 {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-  color: #ffffff;
+.card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .card p {
   font-size: 0.95rem;
-  color: #d0d0d0;
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
 }
 
-.card span {
-  font-size: 1.1rem;
+.price {
   background: #fff;
-  color: #2d2f87;
-  padding: 8px 15px;
-  border-radius: 30px;
+  color: #000;
   display: inline-block;
-  font-weight: bold;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
 }
 
 footer {
   text-align: center;
-  margin-top: 30px;
-  color: #ccc;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  padding: 1rem 0;
+  background: rgba(255, 255, 255, 0.02);
 }
 
-.tg-float {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  width: 55px;
-  height: 55px;
-  background: #0088cc;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  z-index: 999;
-  transition: background 0.3s ease;
+.tg-icon {
+  display: inline-block;
+  margin-left: 10px;
+  background: #229ED9;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 999px;
+  text-decoration: none;
 }
 
-.tg-float:hover {
-  background: #006fa4;
-}
-
-.tg-float img {
-  width: 30px;
-  height: 30px;
-  filter: brightness(0) invert(1);
+@media screen and (max-width: 600px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
 }
