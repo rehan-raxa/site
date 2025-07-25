@@ -1,66 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PublicBotsHub</title>
-  <link rel="stylesheet" href="static/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PublicBotsHub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <div class="loader"></div>
+    <!-- Header / Navigation -->
+    <header class="navbar">
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='IMG_20250103_111839_599.jpg') }}" alt="Logo" class="logo-img">
+            <span class="site-title">PublicBotsHub</span>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav id="menu" class="menu">
+            <a href="/">Home</a>
+            <a href="/contact">Contact</a>
+            <a href="/terms">Terms</a>
+            <a href="/refund">Refund</a>
+        </nav>
+    </header>
 
-  <!-- Navigation Menu -->
-  <nav class="navbar">
-    <div class="nav-left">
-      <img src="/static/logo.png" alt="Logo" class="logo-img" />
-      <span class="logo-text">PublicBotsHub</span>
-    </div>
-    <input type="checkbox" id="menu-toggle">
-    <label for="menu-toggle" class="hamburger">&#9776;</label>
-    <ul class="nav-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="templates/terms">Terms</a></li>
-      <li><a href="templates/refund">Refund</a></li>
-    </ul>
-  </nav>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to <span class="highlight">PublicBotsHub</span></h1>
+        <p>Your one-stop hub for premium Telegram Bots with automation, payments, and custom solutions.</p>
+    </section>
 
-  <!-- Hero Section -->
-  <header class="hero">
-    <h1>Welcome to <span class="highlight">PublicBotsHub</span></h1>
-    <p>Your one-stop hub for premium Telegram Bots with automation, payments, and custom solutions.</p>
-  </header>
+    <!-- Pricing Cards -->
+    <section class="cards-section">
+        <div class="card">
+            <h3>Save Restricted Content Bot</h3>
+            <p>Download protected Telegram content easily.</p>
+            <p class="price">₹199/month</p>
+        </div>
+        <div class="card">
+            <h3>Auto Rename Bot</h3>
+            <p>Automatically rename incoming Telegram files.</p>
+            <p class="price">₹149/month</p>
+        </div>
+        <div class="card">
+            <h3>File Rename Bot</h3>
+            <p>Manual file renaming bot with custom logic.</p>
+            <p class="price">₹99/month</p>
+        </div>
+    </section>
 
-  <!-- Pricing Cards -->
-  <section class="cards">
-    <div class="card">
-      <h2>Save Restricted Content Bot</h2>
-      <p>Download protected Telegram content easily.</p>
-      <span class="price">₹199/month</span>
-    </div>
-    <div class="card">
-      <h2>Auto Rename Bot</h2>
-      <p>Automatically rename incoming Telegram files.</p>
-      <span class="price">₹149/month</span>
-    </div>
-    <div class="card">
-      <h2>File Rename Bot</h2>
-      <p>Manual file renaming bot with custom logic.</p>
-      <span class="price">₹99/month</span>
-    </div>
-    <div class="card">
-      <h2>Personal Telegram Bots</h2>
-      <p>Get your own custom hosted Telegram bots.</p>
-      <span class="price">Starts ₹249</span>
-    </div>
-  </section>
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 PublicBotsHub. All rights reserved.</p>
+    </footer>
 
-  <!-- Contact & Footer -->
-  <footer id="contact">
-    <p>Contact us on Telegram: <a href="https://t.me/YourSupportBot" class="tg-icon">📩 @YourSupportBot</a></p>
-    <p>© 2025 PublicBotsHub. All rights reserved.</p>
-  </footer>
-
+    <!-- Toggle Menu Script -->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("menu");
+            menu.classList.toggle("open");
+        }
+    </script>
 </body>
 </html>
