@@ -2,47 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>PublicBotsHub | Telegram Bot Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="/static/style.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PublicBotsHub – Telegram Bot Developer</title>
+  <link rel="stylesheet" href="/static/style.css" />
 </head>
 <body>
-  <div class="hero">
-    <div class="content">
-      <h1 class="fade-in">🤖 PublicBotsHub</h1>
-      <p class="fade-in">Custom Telegram bots for automation, subscriptions, payments, support, and more!</p>
-      <a href="#services" class="cta-button fade-in">Explore Services</a>
+  <!-- Loading Screen -->
+  <div id="loader">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="card fade-in">
+      <h1>🤖 PublicBotsHub</h1>
+      <p class="subtitle">Custom Telegram Bots for Automation, Payments, Support & More</p>
+
+      <section>
+        <h2>💼 What I Do</h2>
+        <ul>
+          <li>💳 Payment Bots (Razorpay, PhonePe, Paytm)</li>
+          <li>🧾 Subscription-based Access & Membership</li>
+          <li>📦 Product & File Delivery Automation</li>
+          <li>👨‍💼 Auto Support & Lead Generation</li>
+          <li>📊 Admin Panel & Logs Dashboard</li>
+          <li>🔐 User Limit Control + IP Restriction</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>🎯 Ideal For</h2>
+        <p>Resellers, Freelancers, Agencies, SaaS owners, Course Sellers, and Startups who want to automate on Telegram</p>
+      </section>
+
+      <section>
+        <h2>📞 Contact Me</h2>
+        <p>Have a custom bot in mind? <br>
+        <a href="https://t.me/YourUsername" target="_blank">Chat on Telegram</a></p>
+      </section>
+
+      <div class="footer-links">
+        <a href="/privacy">Privacy Policy</a> |
+        <a href="/terms">Terms & Conditions</a>
+      </div>
     </div>
   </div>
 
-  <section id="services" class="fade-up">
-    <h2>Our Services</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Automation Bots</h3>
-        <p>Streamline tasks with automated command handling, file management, and group control bots.</p>
-      </div>
-      <div class="card">
-        <h3>Payment Integration</h3>
-        <p>Enable UPI, Razorpay, Paytm & PhonePe payments directly inside Telegram.</p>
-      </div>
-      <div class="card">
-        <h3>Subscription Bots</h3>
-        <p>Offer paid content access with auto-renewals, expiry management, and user dashboards.</p>
-      </div>
-      <div class="card">
-        <h3>Support Chatbots</h3>
-        <p>Handle FAQs, generate tickets, or auto-respond with smart AI-driven Telegram bots.</p>
-      </div>
-    </div>
-  </section>
+  <!-- Floating Telegram Button -->
+  <a href="https://t.me/YourUsername" class="telegram-button" target="_blank" title="Chat on Telegram">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" />
+  </a>
 
-  <section id="footer">
-    <p>
-      <a href="/privacy">Privacy Policy</a> | 
-      <a href="/terms">Terms & Conditions</a>
-    </p>
-    <p>🚀 Built by a freelance Telegram bot developer</p>
-  </section>
+  <!-- Loader hide script -->
+  <script>
+    window.addEventListener("load", () => {
+      document.getElementById("loader").style.display = "none";
+    });
+  </script>
 </body>
 </html>
