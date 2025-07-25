@@ -1,117 +1,133 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    color: #fff;
+  font-family: 'Inter', sans-serif;
+  background: #f1f5f9;
+  color: #222;
+  scroll-behavior: smooth;
 }
 
-/* Background blur effect */
-.background-blur {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 20% 30%, #ff6ec4, transparent 50%),
-                radial-gradient(circle at 80% 70%, #7873f5, transparent 50%);
-    filter: blur(80px);
-    z-index: 0;
-    opacity: 0.6;
+.hero {
+  background: linear-gradient(135deg, #4f46e5, #3b82f6);
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+  animation: slideDown 1s ease-out;
+  border-radius: 0 0 50px 50px;
 }
 
-/* Container */
-.container {
-    position: relative;
-    z-index: 1;
-    max-width: 700px;
-    padding: 2rem;
-    width: 90%;
+.content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
 }
 
-/* Glass card */
+.content p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+.cta-button {
+  background: #fff;
+  color: #3b82f6;
+  padding: 12px 30px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: 0.3s;
+}
+
+.cta-button:hover {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  max-width: 1000px;
+  margin: auto;
+}
+
 .card {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s;
 }
 
-/* Headings */
-.card h1 {
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
+.card:hover {
+  transform: translateY(-5px);
 }
 
-/* Paragraph */
-.card p {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
+#footer {
+  background: #f3f4f6;
+  padding: 30px;
+  font-size: 0.95rem;
+  text-align: center;
+  color: #555;
+  border-top: 1px solid #e5e7eb;
 }
 
-/* Button */
-.btn {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    background: #ffffff;
-    color: #2a5298;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
+#footer a {
+  color: #3b82f6;
+  text-decoration: none;
+  margin: 0 10px;
 }
 
-.btn:hover {
-    background: #f1f1f1;
-    transform: translateY(-2px);
-}
-
-/* Links */
-.links {
-    margin-top: 1.5rem;
-}
-
-.links a {
-    color: #ffffff;
-    text-decoration: underline;
-    margin: 0 8px;
-    font-weight: 500;
-}
-
-.links a:hover {
-    opacity: 0.8;
+#footer a:hover {
+  text-decoration: underline;
 }
 
 /* Animations */
 .fade-in {
-    opacity: 0;
-    animation: fadeInUp 0.8s forwards;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
 }
-.delay-1 { animation-delay: 0.4s; }
-.delay-2 { animation-delay: 0.8s; }
-.delay-3 { animation-delay: 1.2s; }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1.2s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
