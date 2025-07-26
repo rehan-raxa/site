@@ -42,7 +42,7 @@ header {
 /* Hero Section */
 .hero {
   text-align: center;
-  padding: 2rem 0.4rem;
+  padding: 1rem 0.4rem;
   background: linear-gradient(to right, #1b1f2b, #12141c);
 }
 .hero h1 {
