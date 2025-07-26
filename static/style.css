@@ -6,8 +6,8 @@
 }
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #0f1117;
-  color: #ffffff;
+  background-color: #0f1117; /* dark background */
+  color: #ffffff; /* white text */
   line-height: 1.6;
 }
 
@@ -36,14 +36,14 @@ header {
   transition: color 0.3s ease;
 }
 .nav-links li a:hover {
-  color: #00ff99; /* green hover */
+  color: #00bfff; /* cyan hover */
 }
 
 /* Hero Section */
 .hero {
   text-align: center;
   padding: 1rem 0.4rem;
-  background: linear-gradient(to right, #1b2b1f, #122c1c); /* greenish gradient */
+  background: linear-gradient(to right, #1b1f2b, #12141c); /* dark gradient */
 }
 .hero h1 {
   font-size: 1.8rem;
@@ -79,7 +79,7 @@ header {
   transform: translateY(-5px);
 }
 .card h3 {
-  color: #00ff99; /* green title */
+  color: #00bfff; /* accent color */
   margin-bottom: 0.8rem;
 }
 .card p {
@@ -88,7 +88,7 @@ header {
 }
 .card button {
   padding: 0.6rem 1.2rem;
-  background-color: #00ff99; /* green button */
+  background-color: #00bfff;
   color: #000;
   border: none;
   border-radius: 25px;
@@ -97,7 +97,7 @@ header {
   transition: background-color 0.3s ease;
 }
 .card button:hover {
-  background-color: #00cc77; /* darker green on hover */
+  background-color: #0099cc;
 }
 
 /* Footer */
