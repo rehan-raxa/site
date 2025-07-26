@@ -1,69 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PublicBotsHub</title>
-    <link rel="stylesheet" href="static/style.css" />
-    <link rel="icon" href="static/logo.png" type="image/png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PublicBotsHub</title>
+  <link rel="stylesheet" href="/static/style.css" />
 </head>
 <body>
-    <header class="navbar">
-        <div class="container">
-            <div class="logo-title">
-                <img src="static/logo.png" alt="Logo" class="logo" />
-                <h1>PublicBotsHub</h1>
-            </div>
-            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="/">Home</a></li>
-                <li><a href="/contact">Contact</a></li>
-                <li><a href="/terms">Terms</a></li>
-                <li><a href="/refund">Refund</a></li>
-            </ul>
-        </div>
-    </header>
+  <header>
+    <nav class="navbar">
+      <div class="logo-title">
+        <img src="/static/logo.png" alt="Logo" class="logo" />
+        <span class="site-title">PublicBotsHub</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/terms">Terms</a></li>
+        <li><a href="/refund">Refund</a></li>
+      </ul>
+    </nav>
+  </header>
 
+  <main>
     <section class="hero">
-        <h2>Welcome to <span>PublicBotsHub</span></h2>
-        <p>Your one-stop hub for premium Telegram Bots with automation, payments, and custom solutions.</p>
+      <h1>Build Powerful Telegram Bots</h1>
+      <p>Save Restricted Content • Auto Rename Files • Personal Bots & More</p>
     </section>
 
-    <section class="cards">
-        <div class="card">
-            <h3>Save Restricted Content Bot</h3>
-            <p>Download protected Telegram content easily.</p>
-            <div class="price">₹199/month</div>
-        </div>
-        <div class="card">
-            <h3>Auto Rename Bot</h3>
-            <p>Automatically rename incoming files with your own format.</p>
-            <div class="price">₹149/month</div>
-        </div>
-        <div class="card">
-            <h3>File Rename Bot</h3>
-            <p>Rename Telegram files instantly with caption customization.</p>
-            <div class="price">₹129/month</div>
-        </div>
-        <div class="card">
-            <h3>Personal Custom Bots</h3>
-            <p>Custom Telegram bots tailored for your needs with payment, auth, and more.</p>
-            <div class="price">From ₹249</div>
-        </div>
+    <section class="pricing">
+      <div class="card">
+        <h3>Save Restricted Content Bot</h3>
+        <p>Bypass Telegram restrictions & download with ease.</p>
+        <button>Buy Now</button>
+      </div>
+      <div class="card">
+        <h3>Auto Rename Bot</h3>
+        <p>Automatically rename & organize files shared in Telegram.</p>
+        <button>Buy Now</button>
+      </div>
+      <div class="card">
+        <h3>Personal Bots</h3>
+        <p>Get your own bot with full custom features and hosting.</p>
+        <button>Buy Now</button>
+      </div>
     </section>
+  </main>
 
-    <footer>
-        <p>© 2025 PublicBotsHub. All rights reserved.</p>
-        <a href="https://t.me/YourUsername" target="_blank">
-            <img src="/static/telegram-icon.svg" alt="Telegram" class="telegram-icon" />
-        </a>
-    </footer>
-
-    <script>
-        function toggleMenu() {
-            const nav = document.getElementById("navLinks");
-            nav.classList.toggle("open");
-        }
-    </script>
+  <footer>
+    <p>© 2025 PublicBotsHub. All rights reserved.</p>
+  </footer>
 </body>
 </html>
