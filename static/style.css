@@ -1,154 +1,114 @@
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: #f5f7fa;
-  color: #333;
+  background-color: #0f1117;
+  color: #ffffff;
+  line-height: 1.6;
 }
 
+/* Navbar */
 header {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  padding: 1rem 2rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  background-color: #1b1f2b;
+  padding: 0.7rem 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .logo-title {
   display: flex;
   align-items: center;
-  gap: 10px;
 }
-
-.logo {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  object-fit: cover;
+.logo-only {
+  height: 32px; /* Size matches title height */
+  width: auto;
 }
-
-.site-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #2c3e50;
-}
-
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 1.5rem;
 }
-
 .nav-links li a {
+  color: #ffffff;
   text-decoration: none;
-  color: #333;
   font-weight: 500;
-  transition: color 0.2s;
+  transition: color 0.3s ease;
 }
-
 .nav-links li a:hover {
-  color: #007bff;
+  color: #00bfff;
 }
 
+/* Hero Section */
 .hero {
   text-align: center;
-  padding: 3rem 1rem;
-  background: linear-gradient(to right, #6a11cb, #2575fc);
-  color: white;
+  padding: 4rem 1rem;
+  background: linear-gradient(to right, #1b1f2b, #12141c);
 }
-
 .hero h1 {
   font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
 }
-
 .hero p {
   font-size: 1.2rem;
+  color: #cccccc;
 }
 
+/* Pricing Cards */
 .pricing {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
-  padding: 2rem 1rem;
+  padding: 3rem 1rem;
 }
-
 .card {
-  background: white;
+  background-color: #1e2230;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   padding: 2rem;
   max-width: 300px;
+  flex: 1 1 250px;
   text-align: center;
-  transition: transform 0.2s;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
 }
-
 .card:hover {
   transform: translateY(-5px);
 }
-
 .card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
+  color: #00bfff;
+  margin-bottom: 0.8rem;
 }
-
 .card p {
-  font-size: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  color: #dddddd;
 }
-
 .card button {
-  background: #2575fc;
-  color: white;
+  padding: 0.6rem 1.2rem;
+  background-color: #00bfff;
+  color: #000;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
+  border-radius: 25px;
   cursor: pointer;
-  transition: background 0.3s;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
-
 .card button:hover {
-  background: #1a5ddc;
+  background-color: #0099cc;
 }
 
+/* Footer */
 footer {
   text-align: center;
-  padding: 1rem;
-  background: #fff;
+  padding: 1.2rem;
+  background-color: #1b1f2b;
   font-size: 0.9rem;
-  color: #777;
-  border-top: 1px solid #eee;
-}
-
-@media (max-width: 600px) {
-  .nav-links {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .logo {
-    width: 24px;
-    height: 24px;
-  }
-
-  .site-title {
-    font-size: 1.2rem;
-  }
-
-  .pricing {
-    flex-direction: column;
-    align-items: center;
-  }
+  color: #aaaaaa;
 }
