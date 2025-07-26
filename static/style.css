@@ -27,8 +27,9 @@ header {
   align-items: center;
 }
 .logo-only {
-  height: 32px; /* Size matches title height */
+  height: 20px;
   width: auto;
+  margin-right: 8px;
 }
 .nav-links {
   list-style: none;
