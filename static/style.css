@@ -26,11 +26,6 @@ header {
   display: flex;
   align-items: center;
 }
-.logo-only {
-  height: 20px;
-  width: auto;
-  margin-right: 8px;
-}
 .nav-links {
   list-style: none;
   display: flex;
