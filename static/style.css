@@ -42,12 +42,12 @@ header {
 /* Hero Section */
 .hero {
   text-align: center;
-  padding: 4rem 1rem;
+  padding: 3rem 0.8rem;
   background: linear-gradient(to right, #1b1f2b, #12141c);
 }
 .hero h1 {
-  font-size: 2.7rem;
-  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
   color: #ffffff;
 }
 .hero p {
