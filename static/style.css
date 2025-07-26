@@ -19,17 +19,15 @@ header {
 }
 .navbar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.logo-title {
-  display: flex;
+  justify-content: center;
   align-items: center;
 }
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
 }
 .nav-links li a {
   color: #ffffff;
