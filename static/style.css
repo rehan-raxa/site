@@ -46,13 +46,15 @@ header {
   background: linear-gradient(to right, #1b1f2b, #12141c);
 }
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: 2.7rem;
   margin-bottom: 1rem;
   color: #ffffff;
 }
 .hero p {
-  font-size: 1.2rem;
-  color: #cccccc;
+  font-size: 1.15rem;
+  color: #bbbbbb;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 /* Pricing Cards */
