@@ -15,11 +15,11 @@ async def index(request):
     return {}
 
 @aiohttp_jinja2.template('privacy.html')
-async def index(request):
+async def privacy(request):
     return {}
 
 @aiohttp_jinja2.template('shipping.html')
-async def index(request):
+async def shipping(request):
     return {}
     
 @aiohttp_jinja2.template('terms.html')
