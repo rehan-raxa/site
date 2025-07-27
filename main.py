@@ -39,6 +39,8 @@ app.router.add_get('/', index)
 app.router.add_get('/terms', terms)
 app.router.add_get('/contact', contact)
 app.router.add_get('/refund', refund)
+app.router.add_get('/privacy', privacy)
+app.router.add_get('/shipping', shipping)
 
 # Serve static files (CSS, images, etc.)
 app.router.add_static('/static/', path='static', name='static')
