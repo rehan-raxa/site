@@ -14,6 +14,14 @@ aiohttp_jinja2.setup(app, loader=jinja2.FileSystemLoader('templates'))
 async def index(request):
     return {}
 
+@aiohttp_jinja2.template('privacy.html')
+async def index(request):
+    return {}
+
+@aiohttp_jinja2.template('shipping.html')
+async def index(request):
+    return {}
+    
 @aiohttp_jinja2.template('terms.html')
 async def terms(request):
     return {}
