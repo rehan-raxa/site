@@ -20,12 +20,12 @@
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero fade-in">
       <h1>ᑭᑌᗷᒪIᑕᗷOTᔕᕼᑌᗷ</h1>
       <p>I’m a freelance developer offering secure, fast, and feature-rich automation tools, web solutions, and payment integrations tailored to your needs.</p>
     </section>
 
-    <section class="pricing">
+    <section class="pricing fade-in">
       <div class="card">
         <h3>Telegram Bot Development</h3>
         <p>Get custom Telegram bots for automation, content delivery, subscriptions, or file management — fully hosted and secure.</p>
@@ -58,8 +58,22 @@
     </section>
   </main>
 
-  <footer>
+  <footer class="fade-in">
     <p>© 2025 PublicBotsHub. All rights reserved.</p>
   </footer>
+
+  <!-- Scroll-triggered animation script -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
