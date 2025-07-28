@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Buy Telegram Bot Plans</title>
   <link rel="stylesheet" href="/static/style.css" />
+  <style>
+    .plans-container {
+      max-width: 600px;
+      margin: auto;
+      padding: 2rem;
+    }
+    select, button {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 1rem 0;
+      font-size: 1rem;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -38,8 +51,14 @@
         <label for="bots">Number of Bots:</label>
         <select id="bots">
           <option value="">-- Select Number of Bots --</option>
-          <!-- options 1 to 20 -->
-          ${[...Array(25)].map((_, i) => `<option value="${i+1}">${i+1}</option>`).join('')}
+          <option value="1">1 Bot</option>
+          <option value="3">3 Bots</option>
+          <option value="5">5 Bots</option>
+          <option value="7">7 Bots</option>
+          <option value="9">9 Bots</option>
+          <option value="12">12 Bots</option>
+          <option value="15">15 Bots</option>
+          <option value="all">All Bots</option>
         </select>
       </div>
 
@@ -105,7 +124,7 @@
         msg += `\nNumber of Bots: ${bots.value}`;
       }
       msg += `\nDuration: ${months.value} Month(s)`;
-      alert(msg); // Replace with Razorpay or backend POST
+      alert(msg); // Replace this with your Razorpay logic or backend call
     });
   </script>
 </body>
