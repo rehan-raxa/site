@@ -6,132 +6,121 @@
 }
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #0f1117; /* dark background */
-  color: #ffffff; /* white text */
+  background-color: #f9f9f9;
+  color: #222222;
   line-height: 1.6;
 }
 
 /* Navbar */
 header {
-  background-color: #1b1f2b;
+  background-color: #ffffff;
   padding: 0.7rem 1.5rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .navbar {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap; /* allows wrapping on small screens */
-  padding: 0.5rem 1rem;
+  flex-wrap: wrap;
 }
 .nav-links {
   list-style: none;
   display: flex;
   gap: 2rem;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap; /* allows nav links to wrap if needed */
 }
 .nav-links li a {
-  color: #ffffff;
+  color: #333333;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 .nav-links li a:hover {
-  color: #00bfff; /* cyan hover */
+  color: #007acc;
 }
 
 /* Hero Section */
 .hero {
   text-align: center;
-  padding: 1rem 0.4rem;
-  background: linear-gradient(to right, #1b1f2b, #12141c); /* dark gradient */
+  padding: 2rem 1rem;
+  background: #ffffff;
 }
 .hero h1 {
-  font-size: 1.8rem;
-  margin-bottom: 0.8rem;
-  color: #ffffff;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #222222;
 }
 .hero p {
-  font-size: 1.15rem;
-  color: #bbbbbb;
-  max-width: 700px;
-  margin: 0 auto;
+  font-size: 1.1rem;
+  color: #555555;
 }
 
-/* Pricing Cards */
-.pricing {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  padding: 3rem 1rem;
+/* Dropdowns & Buttons */
+select {
+  width: 100%;
+  padding: 0.75rem;
+  margin: 1rem 0;
+  font-size: 1rem;
+  background-color: #ffffff;
+  color: #222222;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
 }
-.card {
-  background-color: #1e2230;
-  border-radius: 10px;
-  padding: 2rem;
-  max-width: 300px;
-  flex: 1 1 250px;
-  text-align: center;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease;
+select option {
+  background-color: #ffffff;
+  color: #222222;
 }
-.card:hover {
-  transform: translateY(-5px);
-}
-.card h3 {
-  color: #00bfff; /* accent color */
-  margin-bottom: 0.8rem;
-}
-.card p {
-  margin-bottom: 1.5rem;
-  color: #dddddd;
-}
-.card button {
-  padding: 0.6rem 1.2rem;
-  background-color: #00bfff;
-  color: #000;
+button {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  background-color: #007acc;
+  color: #ffffff;
   border: none;
   border-radius: 25px;
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.3s ease;
 }
-.card button:hover {
-  background-color: #0099cc;
+button:hover {
+  background-color: #005f99;
+}
+
+/* Plans Container */
+.plans-container {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 /* Footer */
 footer {
   text-align: center;
   padding: 1.2rem;
-  background-color: #1b1f2b;
+  background-color: #ffffff;
   font-size: 0.9rem;
-  color: #aaaaaa;
+  color: #888888;
+  border-top: 1px solid #eeeeee;
 }
 
-/* Responsive Navbar Fix */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 0.8rem 0;
-  }
-
-  .nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.2rem;
-  }
-
-  .nav-links li a {
-    font-size: 1rem;
-  }
+/* Link Buttons */
+a.btn {
+  background-color: #007acc;
+  color: #ffffff;
+  border-radius: 25px;
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  display: inline-block;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+a.btn:hover {
+  background-color: #005f99;
 }
 
-/* Animation Base */
+/* Animations */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
@@ -142,77 +131,17 @@ footer {
   transform: translateY(0);
 }
 
-a.btn {
-  background-color: #00bfff;
-  color: #000;
-  border-radius: 25px;
-  padding: 0.6rem 1.2rem;
-  font-weight: bold;
-  display: inline-block;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-a.btn:hover {
-  background-color: #0099cc;
-  color: #000;
-}
-
-/* Optional: Zoom effect for hero text */
-.hero h1, .hero p {
-  animation: zoomIn 0.8s ease forwards;
-}
-@keyframes zoomIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.95);
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
   }
-  100% {
-    opacity: 1;
-    transform: scale(1);
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 1.2rem;
   }
-}
-
-/* Dropdown Fix for Dark Theme */
-select {
-  width: 100%;
-  padding: 0.75rem;
-  margin: 1rem 0;
-  font-size: 1rem;
-  background-color: #1e2230;
-  color: #ffffff;
-  border: 1px solid #444;
-  border-radius: 5px;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-
-select option {
-  background-color: #1e2230;
-  color: #ffffff;
-}
-
-.plans-container {
-  max-width: 600px;
-  margin: 3rem auto;
-  padding: 2rem;
-  background-color: #1e2230;
-  border-radius: 10px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-button {
-  width: 100%;
-  padding: 0.75rem;
-  font-size: 1rem;
-  background-color: #00bfff;
-  color: #000;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #0099cc;
+  .nav-links li a {
+    font-size: 1rem;
+  }
 }
