@@ -3,129 +3,104 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Buy Telegram Bot Plans</title>
+  <title>Choose Your Plan - PublicBotsHub</title>
   <link rel="stylesheet" href="/static/style.css" />
-  <style>
-    .plans-container {
-      max-width: 600px;
-      margin: auto;
-      padding: 2rem;
-    }
-    select, button {
-      width: 100%;
-      padding: 0.75rem;
-      margin: 1rem 0;
-      font-size: 1rem;
-    }
-  </style>
 </head>
 <body>
   <header>
     <nav class="navbar">
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="/contact">Contact Us</a></li>
         <li><a href="/terms">Terms</a></li>
+        <li><a href="/privacy">Privacy</a></li>
         <li><a href="/refund">Refund</a></li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <div class="plans-container fade-in">
-      <h2>Select Your Plan</h2>
+  <section class="hero">
+    <h1>Select a Plan</h1>
+    <p>Choose your bot and subscription preferences below.</p>
+  </section>
 
-      <!-- Bot Type Selection -->
-      <label for="plan">Choose Plan:</label>
-      <select id="plan">
-        <option value="">-- Select a Bot Plan --</option>
-        <option value="noads">No Ads Plan</option>
-        <option value="autorename">Auto Rename Bot</option>
-        <option value="filerename">File Rename Bot</option>
-        <option value="savebot">Save Restricted Content Bot</option>
-        <option value="savelog">Save Restricted Logs Channel</option>
+  <div class="plans-container fade-in" style="max-width:600px; margin:auto; padding:2rem;">
+    <label for="bot">Choose a Bot:</label>
+    <select id="bot" onchange="updatePlanOptions()">
+      <option value="">-- Select Bot --</option>
+      <option value="no_ads">No Ads Bot</option>
+      <option value="restricted">Save Restricted Content Bot</option>
+      <option value="logs">Save Restricted Content Logs</option>
+    </select>
+
+    <div id="ads-options" style="display:none;">
+      <label for="botCount">Number of Bots:</label>
+      <select id="botCount">
+        <option value="1">1 Bot</option>
+        <option value="3">3 Bots</option>
+        <option value="5">5 Bots</option>
+        <option value="7">7 Bots</option>
+        <option value="9">9 Bots</option>
+        <option value="12">12 Bots</option>
+        <option value="15">15 Bots</option>
+        <option value="all">All Bots</option>
       </select>
-
-      <!-- Number of Bots (only for No Ads Plan) -->
-      <div id="bots-section" style="display:none;">
-        <label for="bots">Number of Bots:</label>
-        <select id="bots">
-          <option value="">-- Select Number of Bots --</option>
-          <option value="1">1 Bot</option>
-          <option value="3">3 Bots</option>
-          <option value="5">5 Bots</option>
-          <option value="7">7 Bots</option>
-          <option value="9">9 Bots</option>
-          <option value="12">12 Bots</option>
-          <option value="15">15 Bots</option>
-          <option value="all">All Bots</option>
-        </select>
-      </div>
-
-      <!-- Months Selection -->
-      <div id="months-section" style="display:none;">
-        <label for="months">Duration (in Months):</label>
-        <select id="months">
-          <option value="">-- Select Months --</option>
-          <option value="1">1 Month</option>
-          <option value="3">3 Months</option>
-          <option value="6">6 Months</option>
-          <option value="9">9 Months</option>
-          <option value="12">12 Months</option>
-        </select>
-      </div>
-
-      <button id="buyBtn" disabled>Buy Now</button>
     </div>
-  </main>
 
-  <footer class="fade-in">
-    <p>© 2025 PublicBotsHub. All rights reserved.</p>
-  </footer>
+    <div id="month-options" style="display:none;">
+      <label for="months">Duration (Months):</label>
+      <select id="months">
+        <option value="1">1 Month</option>
+        <option value="3">3 Months</option>
+        <option value="6">6 Months</option>
+        <option value="9">9 Months</option>
+        <option value="12">12 Months</option>
+      </select>
+    </div>
+
+    <button onclick="submitPlan()">Continue</button>
+  </div>
 
   <script>
-    const plan = document.getElementById("plan");
-    const bots = document.getElementById("bots");
-    const months = document.getElementById("months");
-    const botsSection = document.getElementById("bots-section");
-    const monthsSection = document.getElementById("months-section");
-    const buyBtn = document.getElementById("buyBtn");
+    function updatePlanOptions() {
+      const bot = document.getElementById('bot').value;
+      const adsOptions = document.getElementById('ads-options');
+      const monthOptions = document.getElementById('month-options');
 
-    function validateForm() {
-      if (plan.value === "noads") {
-        buyBtn.disabled = !(bots.value && months.value);
+      if (bot === 'no_ads') {
+        adsOptions.style.display = 'block';
+        monthOptions.style.display = 'block';
+      } else if (bot === 'restricted' || bot === 'logs') {
+        adsOptions.style.display = 'none';
+        monthOptions.style.display = 'block';
       } else {
-        buyBtn.disabled = !months.value || !plan.value;
+        adsOptions.style.display = 'none';
+        monthOptions.style.display = 'none';
       }
     }
 
-    plan.addEventListener("change", () => {
-      if (plan.value === "noads") {
-        botsSection.style.display = "block";
-      } else {
-        botsSection.style.display = "none";
+    function submitPlan() {
+      const bot = document.getElementById('bot').value;
+      const months = document.getElementById('months').value;
+      const botCount = document.getElementById('botCount')?.value || "";
+
+      if (!bot || !months) {
+        alert("Please select all required options.");
+        return;
       }
 
-      if (plan.value) {
-        monthsSection.style.display = "block";
-      } else {
-        monthsSection.style.display = "none";
+      let planInfo = `Bot: ${bot}, Duration: ${months} month(s)`;
+      if (bot === 'no_ads') {
+        planInfo += `, Bots: ${botCount}`;
       }
 
-      validateForm();
-    });
-
-    bots.addEventListener("change", validateForm);
-    months.addEventListener("change", validateForm);
-
-    buyBtn.addEventListener("click", () => {
-      let msg = `Selected Plan: ${plan.options[plan.selectedIndex].text}`;
-      if (plan.value === "noads") {
-        msg += `\nNumber of Bots: ${bots.value}`;
-      }
-      msg += `\nDuration: ${months.value} Month(s)`;
-      alert(msg); // Replace this with your Razorpay logic or backend call
-    });
+      alert("Selected Plan:\n" + planInfo);
+      // You can redirect to Razorpay payment page here using JS or backend route
+    }
   </script>
+
+  <footer>
+    <p>&copy; 2025 PublicBotsHub. All rights reserved.</p>
+  </footer>
 </body>
 </html>
