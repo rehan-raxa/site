@@ -34,6 +34,10 @@ async def contact(request):
 async def refund(request):
     return {}
 
+@aiohttp_jinja2.template('plans.html')
+async def plans(request):
+    return {}
+
 # Add routes
 app.router.add_get('/', index)
 app.router.add_get('/terms', terms)
@@ -41,6 +45,7 @@ app.router.add_get('/contact', contact)
 app.router.add_get('/refund', refund)
 app.router.add_get('/privacy', privacy)
 app.router.add_get('/shipping', shipping)
+app.router.add_get('/plans', plans)
 
 # Serve static files (CSS, images, etc.)
 app.router.add_static('/static/', path='static', name='static')
