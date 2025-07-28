@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Buy Telegram Bot Plans</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <style>
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 2rem;
+    }
+    select, button {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 1rem 0;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/terms">Terms</a></li>
+        <li><a href="/refund">Refund</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container fade-in">
+      <h2>Select Your Plan</h2>
+
+      <!-- Bot Type Selection -->
+      <label for="plan">Choose Plan:</label>
+      <select id="plan">
+        <option value="">-- Select a Bot Plan --</option>
+        <option value="noads">No Ads Plan</option>
+        <option value="autorename">Auto Rename Bot</option>
+        <option value="filerename">File Rename Bot</option>
+        <option value="savebot">Save Restricted Content Bot</option>
+        <option value="savelog">Save Restricted Logs Channel</option>
+      </select>
+
+      <!-- Number of Bots (only for No Ads Plan) -->
+      <div id="bots-section" style="display:none;">
+        <label for="bots">Number of Bots:</label>
+        <select id="bots">
+          <option value="">-- Select Number of Bots --</option>
+          <!-- options 1 to 20 -->
+          ${[...Array(20)].map((_, i) => `<option value="${i+1}">${i+1}</option>`).join('')}
+        </select>
+      </div>
+
+      <!-- Months Selection -->
+      <div id="months-section" style="display:none;">
+        <label for="months">Duration (in Months):</label>
+        <select id="months">
+          <option value="">-- Select Months --</option>
+          <option value="1">1 Month</option>
+          <option value="3">3 Months</option>
+          <option value="6">6 Months</option>
+          <option value="9">9 Months</option>
+          <option value="12">12 Months</option>
+        </select>
+      </div>
+
+      <button id="buyBtn" disabled>Buy Now</button>
+    </div>
+  </main>
+
+  <footer class="fade-in">
+    <p>© 2025 PublicBotsHub. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const plan = document.getElementById("plan");
+    const bots = document.getElementById("bots");
+    const months = document.getElementById("months");
+    const botsSection = document.getElementById("bots-section");
+    const monthsSection = document.getElementById("months-section");
+    const buyBtn = document.getElementById("buyBtn");
+
+    function validateForm() {
+      if (plan.value === "noads") {
+        buyBtn.disabled = !(bots.value && months.value);
+      } else {
+        buyBtn.disabled = !months.value || !plan.value;
+      }
+    }
+
+    plan.addEventListener("change", () => {
+      if (plan.value === "noads") {
+        botsSection.style.display = "block";
+      } else {
+        botsSection.style.display = "none";
+      }
+
+      if (plan.value) {
+        monthsSection.style.display = "block";
+      } else {
+        monthsSection.style.display = "none";
+      }
+
+      validateForm();
+    });
+
+    bots.addEventListener("change", validateForm);
+    months.addEventListener("change", validateForm);
+
+    buyBtn.addEventListener("click", () => {
+      let msg = `Selected Plan: ${plan.options[plan.selectedIndex].text}`;
+      if (plan.value === "noads") {
+        msg += `\nNumber of Bots: ${bots.value}`;
+      }
+      msg += `\nDuration: ${months.value} Month(s)`;
+      alert(msg); // Replace with Razorpay or backend POST
+    });
+  </script>
+</body>
+</html>
