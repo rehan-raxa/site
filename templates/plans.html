@@ -5,19 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Buy Telegram Bot Plans</title>
   <link rel="stylesheet" href="/static/style.css" />
-  <style>
-    .container {
-      max-width: 600px;
-      margin: auto;
-      padding: 2rem;
-    }
-    select, button {
-      width: 100%;
-      padding: 0.75rem;
-      margin: 1rem 0;
-      font-size: 1rem;
-    }
-  </style>
 </head>
 <body>
   <header>
@@ -32,7 +19,7 @@
   </header>
 
   <main>
-    <div class="container fade-in">
+    <div class="plans-container fade-in">
       <h2>Select Your Plan</h2>
 
       <!-- Bot Type Selection -->
@@ -52,7 +39,7 @@
         <select id="bots">
           <option value="">-- Select Number of Bots --</option>
           <!-- options 1 to 20 -->
-          ${[...Array(20)].map((_, i) => `<option value="${i+1}">${i+1}</option>`).join('')}
+          ${[...Array(25)].map((_, i) => `<option value="${i+1}">${i+1}</option>`).join('')}
         </select>
       </div>
 
