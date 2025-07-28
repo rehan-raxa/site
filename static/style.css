@@ -156,3 +156,17 @@ footer {
     transform: scale(1);
   }
 }
+
+.plans-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.plans-container select,
+.plans-container button {
+  width: 100%;
+  padding: 0.75rem;
+  margin: 1rem 0;
+  font-size: 1rem;
+}
