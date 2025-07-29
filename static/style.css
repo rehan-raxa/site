@@ -6,16 +6,16 @@
 }
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #0f1117; /* dark background */
-  color: #ffffff; /* white text */
+  background-color: #f4f7fc; /* light background */
+  color: #000000; /* black text */
   line-height: 1.6;
 }
 
 /* Navbar */
 header {
-  background-color: #1b1f2b;
+  background-color: #ffffff;
   padding: 0.7rem 1.5rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .navbar {
   display: flex;
@@ -33,29 +33,29 @@ header {
   flex-wrap: wrap;
 }
 .nav-links li a {
-  color: #ffffff;
+  color: #333333;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 .nav-links li a:hover {
-  color: #00bfff;
+  color: #0077cc;
 }
 
 /* Hero Section */
 .hero {
   text-align: center;
   padding: 1rem 0.4rem;
-  background: linear-gradient(to right, #1b1f2b, #12141c);
+  background: linear-gradient(to right, #ffffff, #f0f4fa);
 }
 .hero h1 {
   font-size: 1.8rem;
   margin-bottom: 0.8rem;
-  color: #ffffff;
+  color: #000000;
 }
 .hero p {
   font-size: 1.15rem;
-  color: #bbbbbb;
+  color: #333333;
   max-width: 700px;
   margin: 0 auto;
 }
@@ -69,30 +69,30 @@ header {
   padding: 3rem 1rem;
 }
 .card {
-  background-color: #1e2230;
+  background-color: #ffffff;
   border-radius: 10px;
   padding: 2rem;
   max-width: 300px;
   flex: 1 1 250px;
   text-align: center;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
   transition: transform 0.3s ease;
 }
 .card:hover {
   transform: translateY(-5px);
 }
 .card h3 {
-  color: #00bfff;
+  color: #0077cc;
   margin-bottom: 0.8rem;
 }
 .card p {
   margin-bottom: 1.5rem;
-  color: #dddddd;
+  color: #333333;
 }
 .card button {
   padding: 0.6rem 1.2rem;
   background-color: #00bfff;
-  color: #000;
+  color: #ffffff;
   border: none;
   border-radius: 25px;
   cursor: pointer;
@@ -107,9 +107,9 @@ header {
 footer {
   text-align: center;
   padding: 1.2rem;
-  background-color: #1b1f2b;
+  background-color: #ffffff;
   font-size: 0.9rem;
-  color: #aaaaaa;
+  color: #666666;
 }
 
 /* Responsive Navbar Fix */
@@ -145,7 +145,7 @@ footer {
 /* Button Links */
 a.btn {
   background-color: #00bfff;
-  color: #000;
+  color: #ffffff;
   border-radius: 25px;
   padding: 0.6rem 1.2rem;
   font-weight: bold;
@@ -155,7 +155,7 @@ a.btn {
 }
 a.btn:hover {
   background-color: #0099cc;
-  color: #000;
+  color: #ffffff;
 }
 
 /* Zoom effect */
@@ -173,10 +173,10 @@ a.btn:hover {
   }
 }
 
-/* Dropdown Fix for Dark Theme */
+/* Dropdown Styling (Light Mode) */
 select {
-  background-color: #ffffff; /* white background */
-  color: #000000; /* black text */
+  background-color: #ffffff;
+  color: #000000;
   border: 1px solid #ccc;
   border-radius: 6px;
   padding: 0.6rem;
@@ -187,20 +187,20 @@ select {
   -moz-appearance: none;
   cursor: pointer;
 }
-
 select option {
   background-color: #ffffff;
   color: #000000;
 }
 
+/* Plans Container */
 .plans-container {
   max-width: 600px;
   margin: 3rem auto;
   padding: 2rem;
-  background-color: #ffffff; /* Light background */
-  color: #000000; /* Black text */
+  background-color: #ffffff;
+  color: #000000;
   border-radius: 10px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
 }
 
 /* Global Button */
@@ -209,7 +209,7 @@ button {
   padding: 0.75rem;
   font-size: 1rem;
   background-color: #00bfff;
-  color: #000;
+  color: #ffffff;
   border: none;
   border-radius: 25px;
   cursor: pointer;
