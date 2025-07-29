@@ -26,17 +26,19 @@
   </section>
 
   <div class="plans-container">
-    <label for="bot">Choose a Bot:</label>
-    <select id="bot" onchange="updatePlanOptions()">
-      <option value="">-- Select Bot --</option>
-      <option value="no_ads">No Ads Bot</option>
-      <option value="restricted">Save Restricted Content Bot</option>
-      <option value="logs">Save Restricted Content Logs</option>
-    </select>
+    <div class="dropdown-container">
+      <label for="bot">Choose a Bot:</label>
+      <select id="bot" class="select-dropdown" onchange="updatePlanOptions()">
+        <option value="">-- Select Bot --</option>
+        <option value="no_ads">No Ads Bot</option>
+        <option value="restricted">Save Restricted Content Bot</option>
+        <option value="logs">Save Restricted Content Logs</option>
+      </select>
+    </div>
 
-    <div id="ads-options" style="display:none;">
+    <div id="ads-options" class="dropdown-container" style="display:none;">
       <label for="botCount">Number of Bots:</label>
-      <select id="botCount">
+      <select id="botCount" class="select-dropdown">
         <option value="1">1 Bot</option>
         <option value="3">3 Bots</option>
         <option value="5">5 Bots</option>
@@ -48,9 +50,9 @@
       </select>
     </div>
 
-    <div id="month-options" style="display:none;">
+    <div id="month-options" class="dropdown-container" style="display:none;">
       <label for="months">Duration (Months):</label>
-      <select id="months">
+      <select id="months" class="select-dropdown">
         <option value="1">1 Month</option>
         <option value="3">3 Months</option>
         <option value="6">6 Months</option>
@@ -100,7 +102,7 @@
       }
 
       alert("Selected Plan:\n" + planInfo);
-      // You can redirect to payment or backend here
+      // Redirect or send to server here
     }
   </script>
 </body>
