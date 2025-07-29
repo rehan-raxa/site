@@ -28,7 +28,7 @@
   <div class="plans-container">
     <div class="dropdown-container">
       <label for="bot">Choose a Bot:</label>
-      <select id="bot" class="select-dropdown" onchange="updatePlanOptions()">
+      <select id="bot" class="select-dropdown">
         <option value="">-- Select Bot --</option>
         <option value="no_ads">No Ads Bot</option>
         <option value="restricted">Save Restricted Content Bot</option>
@@ -36,7 +36,7 @@
       </select>
     </div>
 
-    <div id="ads-options" class="dropdown-container" style="display:none;">
+    <div id="botCountContainer" class="dropdown-container" style="display:none;">
       <label for="botCount">Number of Bots:</label>
       <select id="botCount" class="select-dropdown">
         <option value="1">1 Bot</option>
@@ -50,14 +50,10 @@
       </select>
     </div>
 
-    <div id="month-options" class="dropdown-container" style="display:none;">
-      <label for="months">Duration (Months):</label>
+    <div class="dropdown-container" id="durationContainer" style="display:none;">
+      <label for="months">Duration:</label>
       <select id="months" class="select-dropdown">
-        <option value="1">1 Month</option>
-        <option value="3">3 Months</option>
-        <option value="6">6 Months</option>
-        <option value="9">9 Months</option>
-        <option value="12">12 Months</option>
+        <!-- Options will be added dynamically -->
       </select>
     </div>
 
@@ -69,22 +65,78 @@
   </footer>
 
   <script>
-    function updatePlanOptions() {
-      const bot = document.getElementById('bot').value;
-      const adsOptions = document.getElementById('ads-options');
-      const monthOptions = document.getElementById('month-options');
+    const basePrices = {
+      no_ads: 100,
+      restricted: 120,
+      logs: 150
+    };
+
+    const durations = [1, 3, 6, 12];
+
+    function calculatePrice(bot, months, botCount) {
+      let total = 0;
+      let discount = 0;
 
       if (bot === 'no_ads') {
-        adsOptions.style.display = 'block';
-        monthOptions.style.display = 'block';
-      } else if (bot === 'restricted' || bot === 'logs') {
-        adsOptions.style.display = 'none';
-        monthOptions.style.display = 'block';
+        const count = botCount === "all" ? 20 : parseInt(botCount);
+        total = count * months * basePrices.no_ads;
+
+        if (months >= 12) discount = 30;
+        else if (months >= 6) discount = 20;
+        else if (months >= 3) discount = 10;
+
+        total *= (1 - discount / 100);
       } else {
-        adsOptions.style.display = 'none';
-        monthOptions.style.display = 'none';
+        total = months * basePrices[bot];
+
+        if (months >= 12) discount = 20;
+        else if (months >= 6) discount = 10;
       }
+
+      return { price: Math.round(total), discount };
     }
+
+    function updateDurationOptions() {
+      const bot = document.getElementById('bot').value;
+      const botCount = document.getElementById('botCount')?.value || "1";
+      const durationContainer = document.getElementById("durationContainer");
+      const monthsSelect = document.getElementById('months');
+
+      if (!bot) {
+        durationContainer.style.display = "none";
+        return;
+      }
+
+      durationContainer.style.display = "block";
+      monthsSelect.innerHTML = "";
+
+      durations.forEach(month => {
+        const { price, discount } = calculatePrice(bot, month, botCount);
+        const option = document.createElement('option');
+        option.value = month;
+
+        option.textContent = discount > 0
+          ? `${month} month${month > 1 ? "s" : ""} – ₹${price} (${discount}% OFF)`
+          : `${month} month${month > 1 ? "s" : ""} – ₹${price}`;
+
+        monthsSelect.appendChild(option);
+      });
+    }
+
+    document.getElementById("bot").addEventListener("change", () => {
+      const bot = document.getElementById('bot').value;
+      const botCountContainer = document.getElementById("botCountContainer");
+
+      if (bot === "no_ads") {
+        botCountContainer.style.display = "block";
+      } else {
+        botCountContainer.style.display = "none";
+      }
+
+      updateDurationOptions();
+    });
+
+    document.getElementById("botCount").addEventListener("change", updateDurationOptions);
 
     function submitPlan() {
       const bot = document.getElementById('bot').value;
@@ -102,7 +154,7 @@
       }
 
       alert("Selected Plan:\n" + planInfo);
-      // Redirect or send to server here
+      // Proceed with your payment or form submission here
     }
   </script>
 </body>
