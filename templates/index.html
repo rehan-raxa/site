@@ -81,5 +81,34 @@
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
+
+  <script>
+    function openModal() {
+      document.getElementById("contactModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("contactModal").style.display = "none";
+    }
+
+    // Optional: Close modal if user clicks outside content
+    window.onclick = function(event) {
+      const modal = document.getElementById("contactModal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    };
+    </script>
+  
+  <!-- Contact Modal -->
+  <div id="contactModal" class="modal-overlay">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h2>Contact Us</h2>
+      <p>For more information, please reach out to us via Telegram or Email.</p>
+      <a href="/contact" class="btn">Go to Contact Page</a>
+    </div>
+  </div>
+
 </body>
 </html>
