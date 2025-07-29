@@ -99,7 +99,7 @@
     function updatePlanOptions() {
       const bot = document.getElementById('bot').value;
       const adsOptions = document.getElementById('ads-options');
-      const monthOptions = document.getElementById('month-options');
+      const monthOptions = parseInt(document.getElementById('month-options')?.value || "1");
 
       if (bot === 'noads') {
         adsOptions.style.display = 'block';
@@ -119,7 +119,7 @@
     function updateMonthOptions() {
       const bot = document.getElementById('bot').value;
       const botCount = document.getElementById('botCount')?.value || "1";
-      const monthSelect = parseInt(document.getElementById('months')?.value || "1");
+      const monthSelect = document.getElementById('months');
 
       // Clear previous native options
       monthSelect.innerHTML = '';
