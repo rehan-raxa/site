@@ -99,7 +99,7 @@
     function updatePlanOptions() {
       const bot = document.getElementById('bot').value;
       const adsOptions = document.getElementById('ads-options');
-      const monthOptions = parseInt(document.getElementById('month-options')?.value || "1");
+      const monthOptions = document.getElementById('month-options');
 
       if (bot === 'noads') {
         adsOptions.style.display = 'block';
@@ -145,7 +145,7 @@
         const totalPrice = Math.round(month * basePrice * (1 - discount));
         const discountText = (month > 1 && discount > 0) ? ` – ${Math.round(discount * 100)}% off` : '';
         const optionText = `${month} Month(s) – ₹${totalPrice}${discountText}`;
-        newOptions.push({ value: month, label: optionText });
+        newOptions.push({ value: month, label: optionText, selected: month === 1 });
       });
 
       if (monthChoices) {
