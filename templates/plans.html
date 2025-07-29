@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Choose Your Plan - PublicBotsHub</title>
   <link rel="stylesheet" href="/static/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
 </head>
 <body>
   <header>
@@ -154,6 +156,13 @@
 
       alert("Selected Plan:\n" + planInfo);
     }
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      new Choices("#bot", { searchEnabled: false, itemSelectText: '' });
+      new Choices("#botCount", { searchEnabled: false, itemSelectText: '' });
+      new Choices("#months", { searchEnabled: false, itemSelectText: '' });
+    });
   </script>
 </body>
 </html>
