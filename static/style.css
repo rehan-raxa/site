@@ -197,10 +197,11 @@ select option {
   max-width: 600px;
   margin: 3rem auto;
   padding: 2rem;
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #ffffff; /* Light background */
+  color: #000000; /* Black text */
   border-radius: 10px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd; /* 👈 Add this line here */
 }
 
 /* Global Button */
