@@ -241,3 +241,9 @@ footer {
   padding: 10px 14px;
   font-size: 15px;
 }
+
+.dropdown-label {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
