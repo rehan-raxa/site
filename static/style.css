@@ -1,4 +1,4 @@
-/* Reset & Base */
+/* Reset & Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -6,16 +6,16 @@
 }
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f4f7fc; /* light background */
-  color: #000000; /* black text */
+  background-color: #f4f7fc; /* Light background */
+  color: #000000; /* Black text */
   line-height: 1.6;
 }
 
-/* Navbar */
+/* Navbar (Top Menu) */
 header {
-  background-color: #ffffff;
+  background-color: #ffffff; /* White header */
   padding: 0.7rem 1.5rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 .navbar {
   display: flex;
@@ -33,20 +33,20 @@ header {
   flex-wrap: wrap;
 }
 .nav-links li a {
-  color: #333333;
+  color: #333333; /* Dark gray links */
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 .nav-links li a:hover {
-  color: #0077cc;
+  color: #0077cc; /* Blue on hover */
 }
 
-/* Hero Section */
+/* Hero Section (Main Banner) */
 .hero {
   text-align: center;
   padding: 1rem 0.4rem;
-  background: linear-gradient(to right, #ffffff, #f0f4fa);
+  background: linear-gradient(to right, #ffffff, #f0f4fa); /* Subtle gradient */
 }
 .hero h1 {
   font-size: 1.8rem;
@@ -75,14 +75,14 @@ header {
   max-width: 300px;
   flex: 1 1 250px;
   text-align: center;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.08); /* Soft shadow */
   transition: transform 0.3s ease;
 }
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-5px); /* Lift effect on hover */
 }
 .card h3 {
-  color: #0077cc;
+  color: #0077cc; /* Blue title */
   margin-bottom: 0.8rem;
 }
 .card p {
@@ -91,7 +91,7 @@ header {
 }
 .card button {
   padding: 0.6rem 1.2rem;
-  background-color: #00bfff;
+  background-color: #00bfff; /* Cyan button */
   color: #ffffff;
   border: none;
   border-radius: 25px;
@@ -100,7 +100,7 @@ header {
   transition: background-color 0.3s ease;
 }
 .card button:hover {
-  background-color: #0099cc;
+  background-color: #0099cc; /* Darker cyan on hover */
 }
 
 /* Footer */
@@ -112,7 +112,7 @@ footer {
   color: #666666;
 }
 
-/* Responsive Navbar Fix */
+/* Responsive Navbar (for mobile devices) */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
@@ -131,7 +131,7 @@ footer {
   }
 }
 
-/* Animation Base */
+/* Section Fade-In Animation */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
@@ -139,10 +139,10 @@ footer {
 }
 .fade-in.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0); /* Animate upward into view */
 }
 
-/* Button Links */
+/* Button-style Anchor Links */
 a.btn {
   background-color: #00bfff;
   color: #ffffff;
@@ -158,7 +158,7 @@ a.btn:hover {
   color: #ffffff;
 }
 
-/* Zoom effect */
+/* Zoom Animation for Hero Section */
 .hero h1, .hero p {
   animation: zoomIn 0.8s ease forwards;
 }
@@ -173,7 +173,7 @@ a.btn:hover {
   }
 }
 
-/* Global Button */
+/* Global Button Styling */
 button {
   width: 100%;
   padding: 0.75rem;
@@ -190,6 +190,7 @@ button:hover {
   background-color: #0099cc;
 }
 
+/* Override for Body in Light Mode */
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -197,7 +198,6 @@ body {
   color: #222;
 }
 
- 
 /* ✅ Dropdown Styling */
 .select-dropdown {
   padding: 0.6rem 1rem;
@@ -216,7 +216,7 @@ body {
 .select-dropdown:focus {
   border-color: #007bff;
   outline: none;
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2); /* Blue glow */
 }
 .dropdown-container {
   margin-top: 1rem;
