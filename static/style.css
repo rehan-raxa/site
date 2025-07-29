@@ -208,3 +208,15 @@ footer {
 .dropdown-container {
   margin-top: 1rem;
 }
+
+.plans-container label {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.plans-container {
+  padding: 2rem 1rem;
+}
