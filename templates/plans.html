@@ -33,7 +33,8 @@
         <option value="noads">No Ads Bot</option>
         <option value="autorename">Auto Rename Bot</option>
         <option value="filerename">File Rename Bot</option>
-        <option value="savelogs">Save Restricted Content Bot</option>
+        <option value="savebot">Save Restricted Content Bot</option>
+        <option value="savelogs">Save Restricted Content Logs</option>
       </select>
     </div>
 
@@ -79,6 +80,7 @@
       },
       autorename: { 1: 100 },
       filerename: { 1: 100 },
+      savebot: { 1: 100 },
       savelogs: { 1: 150 },
     };
 
@@ -100,7 +102,7 @@
         adsOptions.style.display = 'block';
         monthOptions.style.display = 'block';
         updateMonthOptions();
-      } else if (bot === 'autorename' || bot === 'filerename' || bot === 'savelogs') {
+      } else if (bot === 'savebot' || bot === 'autorename' || bot === 'filerename' || bot === 'savelogs') {
         adsOptions.style.display = 'none';
         monthOptions.style.display = 'block';
         updateMonthOptions();
