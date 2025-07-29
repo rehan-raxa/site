@@ -223,8 +223,10 @@ footer {
 
 
 .dropdown-label {
-  font-size: 18px;
+  font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
   display: block;
-  color
+  text-align: center;
+  color: #333;
+}
