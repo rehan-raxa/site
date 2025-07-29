@@ -197,69 +197,27 @@ body {
   color: #222;
 }
 
-.plan-selector {
-  max-width: 600px;
-  margin: 4rem auto;
-  padding: 2rem;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-  text-align: center;
-}
-
-.plan-selector h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  color: #333;
-}
-
-.bot-options,
-.sub-options {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.75rem;
-  margin: 1rem 0;
-}
-
-button {
-  padding: 0.6rem 1.2rem;
-  background-color: #007bff;
-  color: white;
-  border: none;
+ 
+/* ✅ Dropdown Styling */
+.select-dropdown {
+  padding: 0.6rem 1rem;
+  border: 1px solid #ccc;
   border-radius: 8px;
+  background-color: #fff;
+  color: #333;
   font-size: 1rem;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  display: block;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: border-color 0.2s ease;
 }
-
-button:hover {
-  background-color: #0056b3;
+.select-dropdown:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
 }
-
-.dynamic-section {
-  display: none;
-  margin-top: 2rem;
-}
-
-.dynamic-section h3 {
-  font-size: 1.4rem;
-  color: #444;
-  margin-bottom: 1rem;
-}
-
-.fade-in {
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.dropdown-container {
+  margin-top: 1rem;
 }
