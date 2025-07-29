@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -18,125 +17,122 @@
         <li><a href="/shipping">Shipping</a></li>
       </ul>
     </nav>
-  </header>
-
-  <section class="hero">
+  </header>  <section class="hero">
     <h1>Select a Plan</h1>
     <p>Choose your bot and subscription preferences below.</p>
-  </section>
-
-  <div class="plans-container">
+  </section>  <div class="plans-container">
     <div class="dropdown-container">
       <label for="bot">Choose a Bot:</label>
-      <select id="bot" class="select-dropdown">
+      <select id="bot" class="select-dropdown" onchange="updatePlanOptions()">
         <option value="">-- Select Bot --</option>
-        <option value="no_ads">No Ads Bot</option>
-        <option value="restricted">Save Restricted Content Bot</option>
-        <option value="logs">Save Restricted Content Logs</option>
+        <option value="noads">No Ads Bot</option>
+        <option value="autorename">Auto Rename Bot</option>
+        <option value="filerename">File Rename Bot</option>
+        <option value="savelogs">Save Restricted Content Bot</option>
       </select>
-    </div>
+    </div><div id="ads-options" class="dropdown-container" style="display:none;">
+  <label for="botCount">Number of Bots:</label>
+  <select id="botCount" class="select-dropdown" onchange="updateMonthOptions()">
+    <option value="1">1 Bot</option>
+    <option value="3">3 Bots</option>
+    <option value="5">5 Bots</option>
+    <option value="7">7 Bots</option>
+    <option value="9">9 Bots</option>
+    <option value="12">12 Bots</option>
+    <option value="15">15 Bots</option>
+    <option value="all">All Bots</option>
+  </select>
+</div>
 
-    <div id="botCountContainer" class="dropdown-container" style="display:none;">
-      <label for="botCount">Number of Bots:</label>
-      <select id="botCount" class="select-dropdown">
-        <option value="1">1 Bot</option>
-        <option value="3">3 Bots</option>
-        <option value="5">5 Bots</option>
-        <option value="7">7 Bots</option>
-        <option value="9">9 Bots</option>
-        <option value="12">12 Bots</option>
-        <option value="15">15 Bots</option>
-        <option value="all">All Bots</option>
-      </select>
-    </div>
+<div id="month-options" class="dropdown-container" style="display:none;">
+  <label for="months">Duration (Months):</label>
+  <select id="months" class="select-dropdown">
+    <!-- Dynamically filled -->
+  </select>
+</div>
 
-    <div class="dropdown-container" id="durationContainer" style="display:none;">
-      <label for="months">Duration:</label>
-      <select id="months" class="select-dropdown">
-        <!-- Options will be added dynamically -->
-      </select>
-    </div>
+<button onclick="submitPlan()" style="margin-top: 1.5rem;">Continue</button>
 
-    <button onclick="submitPlan()" style="margin-top: 1.5rem;">Continue</button>
-  </div>
-
-  <footer>
+  </div>  <footer>
     <p>&copy; 2025 PublicBotsHub. All rights reserved.</p>
-  </footer>
-
-  <script>
-    const basePrices = {
-      no_ads: 100,
-      restricted: 120,
-      logs: 150
+  </footer>  <script>
+    const botPlanPrice = {
+      noads: {
+        1: 10,
+        3: 28,
+        5: 45,
+        7: 61,
+        9: 76,
+        12: 96,
+        15: 117,
+        all: 180
+      },
+      autorename: {
+        1: 100
+      },
+      filerename: {
+        1: 100
+      },
+      savelogs: {
+        1: 150
+      },
     };
 
-    const durations = [1, 3, 6, 12];
+    const durationDiscounts = {
+      1: 0.00,
+      3: 0.12,
+      6: 0.18,
+      9: 0.24,
+      12: 0.30
+    };
 
-    function calculatePrice(bot, months, botCount) {
-      let total = 0;
-      let discount = 0;
+    function updatePlanOptions() {
+      const bot = document.getElementById('bot').value;
+      const adsOptions = document.getElementById('ads-options');
+      const monthOptions = document.getElementById('month-options');
+      const monthSelect = document.getElementById('months');
 
-      if (bot === 'no_ads') {
-        const count = botCount === "all" ? 20 : parseInt(botCount);
-        total = count * months * basePrices.no_ads;
-
-        if (months >= 12) discount = 30;
-        else if (months >= 6) discount = 20;
-        else if (months >= 3) discount = 10;
-
-        total *= (1 - discount / 100);
+      if (bot === 'noads') {
+        adsOptions.style.display = 'block';
+        monthOptions.style.display = 'block';
+        updateMonthOptions();
+      } else if (bot === 'autorename' || bot === 'filerename' || bot === 'savelogs') {
+        adsOptions.style.display = 'none';
+        monthOptions.style.display = 'block';
+        updateMonthOptions();
       } else {
-        total = months * basePrices[bot];
-
-        if (months >= 12) discount = 20;
-        else if (months >= 6) discount = 10;
+        adsOptions.style.display = 'none';
+        monthOptions.style.display = 'none';
+        monthSelect.innerHTML = '';
       }
-
-      return { price: Math.round(total), discount };
     }
 
-    function updateDurationOptions() {
+    function updateMonthOptions() {
       const bot = document.getElementById('bot').value;
-      const botCount = document.getElementById('botCount')?.value || "1";
-      const durationContainer = document.getElementById("durationContainer");
-      const monthsSelect = document.getElementById('months');
+      const botCount = document.getElementById('botCount')?.value;
+      const monthSelect = document.getElementById('months');
+      monthSelect.innerHTML = '';
 
-      if (!bot) {
-        durationContainer.style.display = "none";
-        return;
-      }
-
-      durationContainer.style.display = "block";
-      monthsSelect.innerHTML = "";
+      const durations = [1, 3, 6, 9, 12];
 
       durations.forEach(month => {
-        const { price, discount } = calculatePrice(bot, month, botCount);
-        const option = document.createElement('option');
-        option.value = month;
+        let price = 0;
 
-        option.textContent = discount > 0
-          ? `${month} month${month > 1 ? "s" : ""} – ₹${price} (${discount}% OFF)`
-          : `${month} month${month > 1 ? "s" : ""} – ₹${price}`;
-
-        monthsSelect.appendChild(option);
+        if (bot === 'noads') {
+          const base = botPlanPrice.noads[botCount];
+          const discount = durationDiscounts[month] || 0;
+          price = Math.round(base * (1 - discount));
+          const option = new Option(`${month} Month(s) - ₹${price} (${Math.round(discount * 100)}% off)`, month);
+          monthSelect.add(option);
+        } else if (botPlanPrice[bot] && botPlanPrice[bot][1]) {
+          const base = botPlanPrice[bot][1];
+          const discount = durationDiscounts[month] || 0;
+          price = Math.round(base * (1 - discount));
+          const option = new Option(`${month} Month(s) - ₹${price} (${Math.round(discount * 100)}% off)`, month);
+          monthSelect.add(option);
+        }
       });
     }
-
-    document.getElementById("bot").addEventListener("change", () => {
-      const bot = document.getElementById('bot').value;
-      const botCountContainer = document.getElementById("botCountContainer");
-
-      if (bot === "no_ads") {
-        botCountContainer.style.display = "block";
-      } else {
-        botCountContainer.style.display = "none";
-      }
-
-      updateDurationOptions();
-    });
-
-    document.getElementById("botCount").addEventListener("change", updateDurationOptions);
 
     function submitPlan() {
       const bot = document.getElementById('bot').value;
@@ -149,13 +145,12 @@
       }
 
       let planInfo = `Bot: ${bot}, Duration: ${months} month(s)`;
-      if (bot === 'no_ads') {
+      if (bot === 'noads') {
         planInfo += `, Bots: ${botCount}`;
       }
 
       alert("Selected Plan:\n" + planInfo);
-      // Proceed with your payment or form submission here
+      // Redirect or send to server here
     }
-  </script>
-</body>
+  </script></body>
 </html>
