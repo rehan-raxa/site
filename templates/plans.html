@@ -124,6 +124,9 @@
       // Clear previous native options
       monthSelect.innerHTML = '';
 
+      while (monthSelect.firstChild) {
+        monthSelect.removeChild(monthSelect.firstChild);
+      }
       const durations = [1, 3, 6, 9, 12];
       const newOptions = [];
 
@@ -146,11 +149,11 @@
       });
 
       if (monthChoices) {
-        monthChoices.clearChoices();
+        monthChoices.clearStore(); // full reset
         monthChoices.setChoices(newOptions, 'value', 'label', true);
       }
     }
-
+  
     function submitPlan() {
       const bot = document.getElementById('bot').value;
       const months = document.getElementById('months').value;
