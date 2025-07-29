@@ -116,25 +116,22 @@
       const botCount = document.getElementById('botCount')?.value;
       const monthSelect = document.getElementById('months');
       monthSelect.innerHTML = '';
-
       const durations = [1, 3, 6, 9, 12];
-
       durations.forEach(month => {
         let basePrice = 0;
         let discount = durationDiscounts[month] || 0;
+      if (bot === 'noads' && botCount in botPlanPrice.noads) {
+        basePrice = botPlanPrice.noads[botCount];
+      } else if (bot !== 'noads' && botPlanPrice[bot] && botPlanPrice[bot][1]) {
+        basePrice = botPlanPrice[bot][1];
+      } else {
+        return;
+      }
 
-        if (bot === 'noads' && botCount in botPlanPrice.noads) {
-          basePrice = botPlanPrice.noads[botCount];
-        } else if (bot !== 'noads' && botPlanPrice[bot] && botPlanPrice[bot][1]) {
-          basePrice = botPlanPrice[bot][1];
-        } else {
-          return;
-        }
-
-        const totalPrice = Math.round(basePrice * (1 - discount));
-        const discountText = discount > 0 ? ` (${Math.round(discount * 100)}% off)` : '';
-        const optionText = `${month} Month(s) – ₹${totalPrice}${discountText}`;
-        monthSelect.add(new Option(optionText, month));
+      const totalPrice = Math.round(basePrice * (1 - discount));
+      const discountText = (month > 1 && discount > 0) ? ` – ${Math.round(discount * 100)}% off` : '';
+      const optionText = `${month} Month(s) – ₹${totalPrice}${discountText}`;
+      monthSelect.add(new Option(optionText, month));
       });
     }
 
