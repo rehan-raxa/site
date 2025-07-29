@@ -219,3 +219,14 @@ button {
 button:hover {
   background-color: #0099cc;
 }
+
+select, label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+#ads-options,
+#month-options {
+  margin-top: 1rem;
+}
