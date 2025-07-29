@@ -29,7 +29,7 @@
 
   <div class="plans-container">
     <div class="dropdown-container">
-      <label for="bot">Choose a Bot:</label>
+      <label for="bot" class="dropdown-label">Choose a Bot:</label>
       <select id="bot" class="select-dropdown" onchange="updatePlanOptions()">
         <option value="">-- Select Bot --</option>
         <option value="noads">No Ads Bot</option>
@@ -41,7 +41,7 @@
     </div>
 
     <div id="ads-options" class="dropdown-container" style="display:none;">
-      <label for="botCount">Number of Bots:</label>
+      <label for="botCount" class="dropdown-label">Number of Bots:</label>
       <select id="botCount" class="select-dropdown" onchange="updateMonthOptions()">
         <option value="1">1 Bot</option>
         <option value="3">3 Bots</option>
@@ -55,7 +55,7 @@
     </div>
 
     <div id="month-options" class="dropdown-container" style="display:none;">
-      <label for="months">Duration (Months):</label>
+      <label for="months" class="dropdown-label">Duration (Months):</label>
       <select id="months" class="select-dropdown">
         <!-- JS will populate options -->
       </select>
