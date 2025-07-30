@@ -59,6 +59,15 @@
       <select id="months" class="select-dropdown"></select>
     </div>
 
+    <div id="termsWrapper" class="terms-box">
+      <input type="checkbox" id="acceptTerms" />
+      <label for="acceptTerms">
+        I accept the <a id="termsLink" href="/terms" target="_blank">Terms & Conditions</a>
+      </label>
+    </div>
+
+    <button id="continueBtn" disabled>Continue</button>
+    
     <button onclick="submitPlan()" style="margin-top: 1.5rem;">Continue</button>
   </div>
 
@@ -190,5 +199,35 @@
       document.getElementById('botCount').addEventListener('change', updateMonthOptions);
     });
   </script>
+
+  <script>
+    const botSelect = document.getElementById('bot');
+    const termsLink = document.getElementById('termsLink');
+    const acceptTerms = document.getElementById('acceptTerms');
+    const continueBtn = document.getElementById('continueBtn');
+
+    const termsPages = {
+      noads: '/terms-noads',
+      autorename: '/terms-autorename',
+      filerename: '/terms-filerename',
+      savelogs: '/terms-savelogs'
+    };
+
+    botSelect.addEventListener('change', () => {
+      const selected = botSelect.value;
+      if (termsPages[selected]) {
+        termsLink.href = termsPages[selected];
+      } else {
+        termsLink.href = '/terms';
+      }
+      acceptTerms.checked = false;
+      continueBtn.disabled = true;
+    });
+
+    acceptTerms.addEventListener('change', () => {
+      continueBtn.disabled = !acceptTerms.checked;
+    });
+</script>
+
 </body>
 </html>
