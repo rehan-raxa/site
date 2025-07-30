@@ -145,7 +145,7 @@
         const totalPrice = Math.round(month * basePrice * (1 - discount));
         const discountText = (month > 1 && discount > 0) ? ` – ${Math.round(discount * 100)}% off` : '';
         const optionText = `${month} Month(s) – ₹${totalPrice}${discountText}`;
-        newOptions.push({ value: month, label: optionText, selected: month === 1 });
+        newOptions.push({ value: month, label: optionText, selected: month === 1});
       });
 
       if (monthChoices) {
@@ -173,14 +173,23 @@
     }
 
     document.addEventListener("DOMContentLoaded", function () {
-      botChoices = new Choices("#bot", { searchEnabled: false, itemSelectText: '' });
+      botChoices = new Choices("#bot", { 
+        searchEnabled: false, 
+        itemSelectText: '',
+        shouldSort: false,
+        allowHTML: false
+      });
       botCountChoices = new Choices("#botCount", {
         searchEnabled: false,
-        itemSelectText: ''
+        itemSelectText: '',
+        shouldSort: false,
+        allowHTML: false
       });
       monthChoices = new Choices("#months", {
         searchEnabled: false,
-        itemSelectText: ''
+        itemSelectText: '',
+        shouldSort: false,
+        allowHTML: false
       });
 
       document.getElementById('bot').addEventListener('change', updatePlanOptions);
