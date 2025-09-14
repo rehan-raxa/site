@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: site-app            # आप नाम अपनी पसंद से बदल सकते हैं
+    env: docker
+    plan: free                # या कोई paid plan अगर ज़रूरत हो
+    region: ikk               # Render region; आप उनमे से चुन सकते हैं जो आपके नज़दीक हो
+    dockerfilePath: ./Dockerfile
+    buildCommand: docker build -f Dockerfile -t site-app .
+    startCommand: docker run --rm -p 10000:10000 site-app  # Port वगैरह project के अनुसार adjust करना होगा
+    autoDeploy: true
+
+# अगर DB चाहिए हो तो use करें
+databases:
+  - name: mydatabase
+    databaseName: mydb
+    user: admin
+    plan: free
